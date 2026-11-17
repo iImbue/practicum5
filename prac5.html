@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecycLoop - Flexbox & Multimedia Grid (Prac 5)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f9f4;
+            color: #1b4332;
+        }
+
+        /* Flexbox Container */
+        .flex-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b4332;
+            padding: 12px 25px;
+            gap: 15px;
+        }
+
+        /* Each Flex Box Element wraps a <nav> tag as instructed */
+        .flex-box {
+            background-color: #2d6a4f;
+            border-radius: 8px;
+            padding: 5px 15px;
+        }
+
+        .flex-box nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .flex-box nav ul li {
+            position: relative;
+        }
+
+        .flex-box nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 12px;
+            display: block;
+        }
+
+        .flex-box nav a:hover {
+            background-color: #40916c;
+            border-radius: 6px;
+        }
+
+        /* Hover Drop-down Menu */
+        .dropdown-list {
+            display: none !important;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #081c15;
+            min-width: 190px;
+            border-radius: 6px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        .flex-box nav ul li:hover .dropdown-list {
+            display: block !important;
+        }
+
+        /* Grid Layout Below Flexbox for Multimedia Elements */
+        .media-section {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .media-card {
+            background: white;
+            border: 2px solid #95d5b2;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .media-card h3 {
+            margin-top: 0;
+            color: #1b4332;
+        }
+
+        .audio-span {
+            grid-column: span 2;
+            text-align: center;
+            background-color: #d8f3dc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FLEXBOX WITH <nav> INSIDE EVERY FLEX ELEMENT -->
+    <header class="flex-header">
+        <div class="flex-box">
+            <nav>
+                <ul>
+                    <li><a href="https://practicum2-iota.vercel.app/">♻ RecycLoop Home</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="flex-box">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Material Streams ▾</a>
+                        <ul class="dropdown-list">
+                            <li><a href="#">PET & HDPE Plastics</a></li>
+                            <li><a href="#">E-Waste & Batteries</a></li>
+                            <li><a href="#">Scrap Metals</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Scrap Rates</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="flex-box">
+            <nav>
+                <ul>
+                    <li><a href="#">Book Doorstep Pickup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CSS GRID LAYOUT BELOW FLEXBOX USING YOUR MULTIMEDIA ELEMENTS -->
+    <section class="media-section">
+        <h2>RecycLoop Multimedia & Drop-Off Hub Grid</h2>
+        <div class="media-grid">
+            <div class="media-card audio-span">
+                <h3>Circular Economy Audio Guide</h3>
+                <audio controls style="width: 80%;">
+                    <source src="video and audio/audio1.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="media-card">
+                <h3>1. Recycling Guidelines (PDF)</h3>
+                <iframe src="files/file1.pdf" width="100%" height="280" title="RecycLoop Guidelines PDF"></iframe>
+            </div>
+
+            <div class="media-card">
+                <h3>2. Circular Economy Overview (YouTube)</h3>
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/0EfsD7xNLIo" title="Circular Economy Video" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="media-card">
+                <h3>3. Waste Processing Demo (Local Video)</h3>
+                <video width="100%" height="280" controls muted loop>
+                    <source src="video and audio/video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="media-card">
+                <h3>4. Karunya Recycle Hub Location (Map)</h3>
+                <iframe src="https://maps.google.com/maps?q=Karunya%20Institute%20of%20Technology%20and%20Sciences&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
